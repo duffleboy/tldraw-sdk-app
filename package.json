@@ -1,0 +1,16 @@
+{
+  "name": "tldraw-sdk-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@tldraw/tldraw": "^1.7.5",
+    "next": "13.4.4",
+    "react": "18.3.0",
+    "react-dom": "18.3.0"
+  }
+}
