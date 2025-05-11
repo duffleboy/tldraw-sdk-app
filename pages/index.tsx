@@ -2,6 +2,13 @@ import dynamic from 'next/dynamic'
 import { useEffect, useRef } from 'react'
 import '@tldraw/tldraw/tldraw.css'
 
+// Extend the Window interface to include the 'app' property
+declare global {
+  interface Window {
+    app: any;
+  }
+}
+
 const Tldraw = dynamic(() => import('@tldraw/tldraw').then((mod) => mod.Tldraw), {
   ssr: false,
 })
