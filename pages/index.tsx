@@ -2,6 +2,11 @@ import dynamic from 'next/dynamic'
 import { useEffect, useRef } from 'react'
 import '@tldraw/tldraw/tldraw.css'
 
+// Directly extend the Window object in this file
+if (typeof window !== 'undefined') {
+  (window as any).app = null;
+}
+
 const Tldraw = dynamic(() => import('@tldraw/tldraw').then((mod) => mod.Tldraw), {
   ssr: false,
 })
@@ -11,7 +16,6 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== 'undefined' && tldrawRef.current) {
-      // Directly assert the window type to bypass TypeScript issues
       (window as any).app = tldrawRef.current
       console.log('tldraw app initialized:', (window as any).app)
     }
