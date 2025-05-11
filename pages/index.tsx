@@ -2,9 +2,11 @@ import dynamic from 'next/dynamic'
 import { useEffect, useRef } from 'react'
 import '@tldraw/tldraw/tldraw.css'
 
-// Directly extend the Window object in this file
-if (typeof window !== 'undefined') {
-  (window as any).app = null;
+// Force TypeScript to accept the property assignment
+declare global {
+  interface Window {
+    app: any;
+  }
 }
 
 const Tldraw = dynamic(() => import('@tldraw/tldraw').then((mod) => mod.Tldraw), {
@@ -16,21 +18,19 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== 'undefined' && tldrawRef.current) {
-      (window as any).app = tldrawRef.current
-      console.log('tldraw app initialized:', (window as any).app)
+      window.app = tldrawRef.current
+      console.log('tldraw app initialized:', window.app)
     }
   }, [])
 
   return (
     <div style={{ width: '100vw', height: '100vh', backgroundColor: '#fff' }}>
-      {Tldraw && (
-        <Tldraw
-          ref={tldrawRef}
-          persistenceKey="tldraw-sdk-app"
-          showMenu={true}
-          showMultiplayerMenu={false}
-        />
-      )}
+      <Tldraw
+        ref={tldrawRef}
+        persistenceKey="tldraw-sdk-app"
+        showMenu={true}
+        showMultiplayerMenu={false}
+      />
     </div>
   )
 }
