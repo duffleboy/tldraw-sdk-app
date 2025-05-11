@@ -11,8 +11,8 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== 'undefined' && tldrawRef.current) {
-      window.app = tldrawRef.current
-      console.log('tldraw app initialized:', window.app)
+      (window as any).app = tldrawRef.current
+      console.log('tldraw app initialized:', (window as any).app)
     }
   }, [])
 
