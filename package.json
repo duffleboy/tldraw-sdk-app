@@ -7,10 +7,14 @@
     "build": "next build",
     "start": "next start"
   },
-  "dependencies": {
-    "@tldraw/tldraw": "^1.7.5",
-    "next": "13.4.4",
-    "react": "18.3.0",
-    "react-dom": "18.3.0"
-  }
+"dependencies": {
+  "@tldraw/tldraw": "^1.7.5",
+  "next": "13.4.4",
+  "react": "18.3.0",
+  "react-dom": "18.3.0",
+  "typescript": "^5.4.5",
+  "@types/node": "^20.11.30",
+  "@types/react": "^18.3.18",
+  "@types/react-dom": "^18.3.5"
 }
+
