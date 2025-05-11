@@ -2,13 +2,6 @@ import dynamic from 'next/dynamic'
 import { useEffect, useRef } from 'react'
 import '@tldraw/tldraw/tldraw.css'
 
-// Force TypeScript to accept the property assignment
-declare global {
-  interface Window {
-    app: any;
-  }
-}
-
 const Tldraw = dynamic(() => import('@tldraw/tldraw').then((mod) => mod.Tldraw), {
   ssr: false,
 })
@@ -18,8 +11,9 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== 'undefined' && tldrawRef.current) {
-      window.app = tldrawRef.current
-      console.log('tldraw app initialized:', window.app)
+      // Use a non-typed assignment to bypass TypeScript
+      (window as any)['app'] = tldrawRef.current
+      console.log('tldraw app initialized:', (window as any)['app'])
     }
   }, [])
 
