@@ -11,6 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     if (typeof window !== 'undefined' && tldrawRef.current) {
+      // Directly assert the window type to bypass TypeScript issues
       (window as any).app = tldrawRef.current
       console.log('tldraw app initialized:', (window as any).app)
     }
