@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic'
 import { useEffect, useRef } from 'react'
-import '@tldraw/tldraw/tldraw.css'
+import '@tldraw/tldraw/dist/tldraw.css'
 
 const Tldraw = dynamic(() => import('@tldraw/tldraw').then((mod) => mod.Tldraw), {
   ssr: false,
