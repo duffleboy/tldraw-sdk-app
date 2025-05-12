@@ -1,9 +1,8 @@
 import dynamic from 'next/dynamic'
 import { useEffect, useRef } from 'react'
-import 'tldraw/styles.css'
 
-
-
+// ✅ Load the tldraw CSS from CDN
+import 'https://cdn.jsdelivr.net/npm/@tldraw/tldraw@1.4.0/dist/tldraw.css'
 
 const Tldraw = dynamic(() => import('@tldraw/tldraw').then((mod) => mod.Tldraw), {
   ssr: false,
