@@ -1,6 +1,7 @@
 import dynamic from 'next/dynamic'
 import { useEffect, useRef } from 'react'
-import '@tldraw/tldraw/dist/styles.css'
+import 'tldraw/styles.css'
+
 
 
 
